@@ -11,8 +11,11 @@
 
 <style lang="postcss">
 	.landingImage {
-		width: 15rem;
-		height: 15rem;
+		/* @apply xl:w-1/6 xl:h-1/6;
+		@apply lg:w-1/4 lg:h-1/4;
+		@apply md:w-1/2 md:h-1/2; */
+		@apply sm:w-3/4 sm:h-3/4;
+		@apply lg:w-1/4 lg:h-1/4;
 		@apply drop-shadow-xl;
 		@apply mb-6;
 	}
@@ -25,7 +28,7 @@
 	}
 
 	h1 {
-		@apply text-gray-700 font-bold text-6xl;
+		@apply text-gray-700 font-bold text-6xl text-center;
 	}
 
 	p {

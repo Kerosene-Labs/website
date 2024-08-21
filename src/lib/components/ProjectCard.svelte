@@ -11,7 +11,7 @@
 
 <div class="projectCard">
 	<a href={repoUrl}>
-		<img class="openGraphImage" src={openGraphImageUrl} alt="{name} open graph image" />
+		<img class="openGraphImage" src={openGraphImageUrl} alt="{name} opengraph image" />
 	</a>
 	<div class="projectCardBody flex flex-col">
 		<h1>{name}</h1>

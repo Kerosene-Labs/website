@@ -15,5 +15,6 @@
 		@apply hover:bg-gray-600 hover:border-gray-500;
 		@apply transition-all;
 		@apply w-fit;
+		@apply text-clip text-nowrap;
 	}
 </style>
