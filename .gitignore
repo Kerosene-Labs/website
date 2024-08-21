@@ -1,6 +1,7 @@
 node_modules
 .pnpm-store
-*lock.*
+*-lock.json
+*-lock.yaml
 
 # Output
 .output
