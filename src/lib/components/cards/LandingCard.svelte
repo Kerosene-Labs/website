@@ -1,37 +1,6 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
 	import Button from '../buttons/Button.svelte';
-	import Modal from '../Modal.svelte';
-	import ProjectCardsGrid from '../AllProjectCards.svelte';
-	import { updateQueryParam } from '$lib/util/query';
-
-	let isProjectModalVisible: boolean = false;
-
-	onMount(() => {
-		handleQueryParameterChange();
-	});
-
-	function handleQueryParameterChange() {
-		if (typeof window !== 'undefined') {
-			const params = new URLSearchParams(window.location.search);
-			const modalType = params.get("modal");
-			if (modalType === "projects") {
-				isProjectModalVisible = true;
-			}
-		}
-	}
-
-	function setModalType(modalType: string) {
-		updateQueryParam("modal", modalType);
-		handleQueryParameterChange();
-	}
 </script>
-
-{#if isProjectModalVisible}
-	<Modal title="Our Projects" bind:isVisible={isProjectModalVisible}>
-		<ProjectCardsGrid></ProjectCardsGrid>
-	</Modal>
-{/if}
 
 <div class="landingCard">
 	<img
@@ -41,7 +10,14 @@
 	/>
 	<h1>Kerosene Labs</h1>
 	<p>Creating vendor independent solutions for micro or macro organizations.</p>
-	<Button on:click={() => setModalType("projects")} text="What We Do"></Button>
+	<Button
+		text="What We Do"
+		on:click={() => {
+			document
+				.getElementById('projectCards')
+				?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+		}}
+	></Button>
 </div>
 
 <style lang="postcss">
