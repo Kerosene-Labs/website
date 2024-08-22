@@ -1,5 +1,5 @@
 <script>
-	import LandingCard from '$lib/components/LandingCard.svelte';
+	import LandingCard from '$lib/components/cards/LandingCard.svelte';
 </script>
 
 <div class="page">
