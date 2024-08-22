@@ -24,7 +24,7 @@
 		@apply bg-gray-100 rounded-3xl p-10;
 		@apply transition-all duration-[350ms];
 		@apply hover:bg-orange-100;
-		@apply w-full;
+		@apply w-full h-full;
 	}
 
 	h1 {
