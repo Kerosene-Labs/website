@@ -1,20 +1,40 @@
-<script>
+<script lang="ts">
+	import { onMount } from 'svelte';
 	import Button from './Button.svelte';
+	import Modal from './Modal.svelte';
+	import ProjectCardsGrid from './ProjectCardsGrid.svelte';
+
+	onMount(() => {
+		const params = new URLSearchParams(window.location.search);
+		const modal = params.get('modal');
+
+		if (modal === 'projects') {
+			isProjectsModalVisible = true;
+		}
+	});
+	let isProjectsModalVisible: boolean = false;
 </script>
 
+{#if isProjectsModalVisible}
+	<Modal>
+		<ProjectCardsGrid></ProjectCardsGrid>
+	</Modal>
+{/if}
+
 <div class="landingCard">
-	<img class="landingImage" src="kerosene_logo_transparent.png" alt="Kerosene Labs logo transparent" />
+	<img
+		class="landingImage"
+		src="kerosene_logo_transparent.png"
+		alt="Kerosene Labs logo transparent"
+	/>
 	<h1>Kerosene Labs</h1>
 	<p>Creating vendor independent solutions for micro or macro organizations.</p>
-	<Button url="/projects" text="Our Projects"></Button>
+	<Button on:click={() => (isProjectsModalVisible = true)} text="Our Projects"></Button>
 </div>
 
 <style lang="postcss">
 	.landingImage {
-		/* @apply xl:w-1/6 xl:h-1/6;
-		@apply lg:w-1/4 lg:h-1/4;
-		@apply md:w-1/2 md:h-1/2; */
-		@apply sm:w-3/4 sm:h-3/4;
+		@apply md:w-3/4 md:h-3/4;
 		@apply lg:w-1/4 lg:h-1/4;
 		@apply drop-shadow-xl;
 		@apply mb-6;

@@ -1,11 +1,10 @@
 <script lang="ts">
-	export let url: string;
 	export let text: string;
 </script>
 
-<a href={url} class="btn">
-	<p>{text}</p>
-</a>
+<button on:click class="btn">
+	{text}
+</button>
 
 <style lang="postcss">
 	.btn {
@@ -16,5 +15,6 @@
 		@apply transition-all;
 		@apply w-fit;
 		@apply text-clip text-nowrap;
+		@apply select-none;
 	}
 </style>
