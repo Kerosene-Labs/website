@@ -37,7 +37,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="flex h-screen items-center justify-center" id="projectCards">
+	<div class="flex h-screen items-center justify-center overflow-clip" id="projectCards">
 		<div class="project-cards">
 			<div>
 				<ProjectCard
@@ -60,9 +60,22 @@
 					repoUrl="https://github.com/Kerosene-Labs/espresso"
 				></ProjectCard>
 			</div>
+			<Button
+				text="Our Team"
+				role="secondary"
+				on:click={() => {
+					document
+						.getElementById('aboutUsCards')
+						?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
+				}}
+			></Button>
 		</div>
 	</div>
-	<div class="about-us-cards h-screen">
+	<div class="about-us-cards h-screen overflow-clip" id="aboutUsCards">
+		<div class="flex flex-col gap-2">
+			<h1>Our Team</h1>
+			<p>They're what makes us special.</p>
+		</div>
 		<MemberCard
 			name="Hunter LaFaille"
 			position="Founder"
@@ -101,11 +114,12 @@
 	}
 	.project-cards {
 		@apply grid;
-		@apply sm:w-3/4 sm:grid-cols-1 sm:grid-rows-3;
+		@apply sm:w-3/4 sm:grid-cols-1 sm:grid-rows-4;
 		@apply lg:w-1/2 lg:grid-cols-2 lg:grid-rows-2 lg:gap-12;
 	}
 	.about-us-cards {
 		@apply lg:w-1/2;
+		@apply p-6;
 		@apply flex flex-col items-center gap-12;
 	}
 </style>
