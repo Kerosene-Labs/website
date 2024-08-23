@@ -1,7 +1,9 @@
 <script lang="ts">
 	import { PageSectionType, scrollTo } from '$lib/util/pageSection';
+	import { TitleSize } from '$lib/util/text';
 	import Button from '../buttons/Button.svelte';
 	import ProjectCard from '../cards/ProjectCard.svelte';
+	import Title from '../labels/Title.svelte';
 
 	enum ProjectTypes {
 		KINDLING,
@@ -14,7 +16,7 @@
 
 <div class="group">
 	<div class="flex flex-col gap-2">
-		<h1 class="title">Our Projects</h1>
+		<Title text="Our Projects" size={TitleSize.SMALL} />
 		<p class="subtitle">We like building things that help.</p>
 	</div>
 	<div class="carousel">
@@ -64,7 +66,7 @@
 		@apply text-center text-3xl font-medium text-gray-500;
 	}
 	div.carousel {
-		@apply overflow-auto shadow-inner rounded-2xl bg-slate-400/50 flex;
+		@apply flex overflow-auto rounded-2xl bg-slate-400/50 shadow-inner;
 		@apply p-12;
 	}
 	div.carouselItems {
