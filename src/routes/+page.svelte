@@ -1,21 +1,27 @@
 <script lang="ts">
-	import LandingCard from '$lib/components/cards/LandingCard.svelte';
+	import LandingCardGroup from '$lib/components/cardGroups/LandingCardGroup.svelte';
+	import ProjectCardGroup from '$lib/components/cardGroups/ProjectCardGroup.svelte';
 	import PageSection from '$lib/components/PageSection.svelte';
+	import { PageSectionType } from '$lib/util/pageSection';
 
 	if (typeof window !== 'undefined') {
 		document.title = 'Kerosene Labs';
 	}
 </script>
 
-<PageSection name="landing">
-	<div class="flex h-full items-center justify-center">
-		<LandingCard scrollToFunction={null} />
+<PageSection type={PageSectionType.LANDING}>
+	<div class="flex w-full h-full items-center justify-center">
+		<LandingCardGroup />
 	</div>
 </PageSection>
-<PageSection name="projects">
-	<h1>Test</h1>
+<PageSection type={PageSectionType.PROJECTS}>
+	<div class="flex h-full items-center justify-center">
+		<div class="sm:w-5/6 lg:w-1/2">
+			<ProjectCardGroup />
+		</div>
+	</div>
 </PageSection>
-<PageSection name="members">
+<PageSection type={PageSectionType.MEMBERS}>
 	<h1>Test</h1>
 </PageSection>
 

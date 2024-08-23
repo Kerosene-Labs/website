@@ -4,36 +4,18 @@ Description: A slottable component that forces its width and height to be that o
 also exports functions for having the browser smooth scroll to it.
 -->
 <script lang="ts">
-	export let name: string;
+	import type { PageSectionType } from "$lib/util/pageSection";
 
-	/**
-	 * Get this components Element ID
-	 */
-	export function getElementId() {
-		return name + 'Page';
-	}
-
-	/**
-	 * Get this Element
-	 */
-	export function getElement(): HTMLElement {
-		return document.getElementById(name + 'Page')!;
-	}
-
-	/**
-	 * Scroll this section into view
-	 */
-	export function scrollTo() {
-		getElement().scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' });
-	}
+	export let type: PageSectionType;
 </script>
 
-<div class="page" id={getElementId()}>
+<div class="page" id={type}>
 	<slot />
 </div>
 
 <style lang="postcss">
 	div.page {
 		@apply h-screen w-screen;
+		@apply overflow-scroll;
 	}
 </style>

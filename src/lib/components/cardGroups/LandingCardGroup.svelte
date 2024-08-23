@@ -1,7 +1,6 @@
 <script lang="ts">
 	import Button from '../buttons/Button.svelte';
-
-	export let scrollToFunction: CallableFunction | null;
+	import { PageSectionType, scrollTo } from '$lib/util/pageSection';
 </script>
 
 <div class="flex flex-col items-center gap-4">
@@ -12,7 +11,7 @@
 		<Button
 			text="Our Projects"
 			on:click={() => {
-				console.log('Clicked');
+				scrollTo(PageSectionType.PROJECTS);
 			}}
 		/>
 		<Button text="GitHub" role="secondary" />
