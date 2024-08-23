@@ -1,5 +1,6 @@
 <script lang="ts">
 	import LandingCardGroup from '$lib/components/cardGroups/LandingCardGroup.svelte';
+	import MembersCardGroup from '$lib/components/cardGroups/MembersCardGroup.svelte';
 	import ProjectCardGroup from '$lib/components/cardGroups/ProjectCardGroup.svelte';
 	import PageSection from '$lib/components/PageSection.svelte';
 	import { PageSectionType } from '$lib/util/pageSection';
@@ -22,7 +23,9 @@
 	</div>
 </PageSection>
 <PageSection type={PageSectionType.MEMBERS}>
-	<h1>Test</h1>
+	<div class="flex h-full justify-center">
+		<MembersCardGroup />
+	</div>
 </PageSection>
 
 <style lang="postcss">

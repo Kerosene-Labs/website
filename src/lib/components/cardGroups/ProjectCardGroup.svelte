@@ -1,4 +1,6 @@
 <script lang="ts">
+	import { PageSectionType, scrollTo } from '$lib/util/pageSection';
+	import Button from '../buttons/Button.svelte';
 	import ProjectCard from '../cards/ProjectCard.svelte';
 
 	enum ProjectTypes {
@@ -7,28 +9,42 @@
 		ESPRESSO
 	}
 
-	function scrollToProject() {
-		
-	}
+	function scrollToProject() {}
 </script>
 
 <div class="group">
-	<h1 class="title">Some Of Our Projects</h1>
-	<div class="projects">
-		<ProjectCard
-			name="Kindling"
-			description="The fuel that'll ignite your application. A programmable TLS HTTP/1.1 server with no dependencies."
-			repoUrl="https://github.com/Kerosene-Labs/kindling"
-		/>
-		<ProjectCard
-			name="ATC"
-			description="An API gateway with scoped access management for organizations that don't enjoy vendor lock-in."
-			repoUrl="https://github.com/Kerosene-Labs/atc"
-		/>
-		<ProjectCard
-			name="Espresso"
-			description="Build Java applications without fighting your build tool. Drink some espresso. "
-			repoUrl="https://github.com/Kerosene-Labs/espresso"
+	<div class="flex flex-col gap-2">
+		<h1 class="title">Our Projects</h1>
+		<p class="subtitle">We like building things that help.</p>
+	</div>
+	<div class="carousel">
+		<div class="carouselItems">
+			<div class="carouselItem">
+				<ProjectCard
+					name="Kindling"
+					description="The fuel that'll ignite your application. A programmable TLS HTTP/1.1 server with no dependencies."
+					repoUrl="https://github.com/Kerosene-Labs/kindling"
+				/>
+			</div>
+			<ProjectCard
+				name="ATC"
+				description="An API gateway with scoped access management for organizations that don't enjoy vendor lock-in."
+				repoUrl="https://github.com/Kerosene-Labs/atc"
+			/>
+			<ProjectCard
+				name="Espresso"
+				description="Build Java applications without fighting your build tool. Drink some espresso. "
+				repoUrl="https://github.com/Kerosene-Labs/espresso"
+			/>
+		</div>
+	</div>
+	<div class="w-1/4 self-center">
+		<Button
+			text="Our Team"
+			role="secondary"
+			on:click={() => {
+				scrollTo(PageSectionType.MEMBERS);
+			}}
 		/>
 	</div>
 </div>
@@ -37,14 +53,24 @@
 	div.group {
 		@apply sm:flex sm:flex-col sm:gap-8;
 		@apply lg:flex lg:gap-12;
+		@apply w-full;
 	}
 	h1.title {
 		@apply text-5xl font-bold;
 		@apply text-gray-700;
 		@apply text-center;
 	}
-    div.projects {
-        @apply sm:grid sm:grid-cols-1 sm:grid-rows-3 sm:gap-8;
-        @apply lg:grid lg:grid-cols-2 lg:grid-rows-2 lg:gap-12;
-    }
+	p.subtitle {
+		@apply text-center text-3xl font-medium text-gray-500;
+	}
+	div.carousel {
+		@apply overflow-auto shadow-inner rounded-2xl bg-slate-400/50 flex;
+		@apply p-12;
+	}
+	div.carouselItems {
+		@apply flex flex-row gap-5;
+	}
+	div.carouselItem {
+		@apply flex-grow;
+	}
 </style>
