@@ -16,6 +16,6 @@ also exports functions for having the browser smooth scroll to it.
 <style lang="postcss">
 	div.page {
 		@apply h-screen w-screen;
-		@apply overflow-scroll;
+		@apply overflow-clip;
 	}
 </style>
