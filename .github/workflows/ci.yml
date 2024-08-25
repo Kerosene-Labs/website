@@ -33,4 +33,4 @@ jobs:
               with:
                 name: build
             - name: Transfer artifact to target
-              run: scp -o "StrictHostKeyChecking no" -i ${{secrets.DEPLOY_PRIVATE_KEY_PATH}} -r build/* ${{secrets.DEPLOY_SSH_URL}}
+              run: scp -o "StrictHostKeyChecking no" -r build/* ${{secrets.DEPLOY_SSH_URL}}
