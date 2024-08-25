@@ -2,7 +2,8 @@
 	import LandingCardGroup from '$lib/components/cardGroups/LandingCardGroup.svelte';
 	import MembersCardGroup from '$lib/components/cardGroups/MembersCardGroup.svelte';
 	import ProjectCardGroup from '$lib/components/cardGroups/ProjectCardGroup.svelte';
-	import PageSection from '$lib/components/PageSection.svelte';
+	import CenterContainer from '$lib/components/layout/CenterContainer.svelte';
+	import PageSection from '$lib/components/layout/PageSection.svelte';
 	import { PageSectionType } from '$lib/util/pageSection';
 
 	if (typeof window !== 'undefined') {
@@ -11,25 +12,22 @@
 </script>
 
 <PageSection type={PageSectionType.LANDING}>
-	<div class="center-container">
+	<CenterContainer>
 		<LandingCardGroup />
-	</div>
+	</CenterContainer>
 </PageSection>
 <PageSection type={PageSectionType.PROJECTS}>
-	<div class="center-container">
+	<CenterContainer>
 		<div class="sm:w-5/6 lg:w-1/2">
 			<ProjectCardGroup />
 		</div>
-	</div>
+	</CenterContainer>
 </PageSection>
 <PageSection type={PageSectionType.MEMBERS}>
-	<div class="center-container">
+	<CenterContainer>
 		<MembersCardGroup />
-	</div>
+	</CenterContainer>
 </PageSection>
 
 <style lang="postcss">
-	div.center-container {
-		@apply flex w-full h-full items-center justify-center;
-	}
 </style>

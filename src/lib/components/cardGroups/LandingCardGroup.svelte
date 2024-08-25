@@ -32,7 +32,4 @@
 	div.container {
 		@apply flex w-full flex-col items-center gap-4;
 	}
-	div.buttonRow {
-		@apply flex w-full flex-row gap-4;
-	}
 </style>
