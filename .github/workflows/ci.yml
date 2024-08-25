@@ -28,9 +28,9 @@ jobs:
             - name: Setup SSH Agent
               uses: webfactory/ssh-agent@v0.9.0
               with:
-                ssh-private-key: ${{env.DEPLOY_PRIVATE_KEY}}
+                ssh-private-key: ${{secrets.DEPLOY_PRIVATE_KEY}}
             - uses: actions/download-artifact@v4
               with:
                 name: build
             - name: Transfer artifact to target
-              run: scp -r build/* ${{env.DEPLOY_SSH_URL}}
+              run: scp -r build/* ${{secrets.DEPLOY_SSH_URL}}
