@@ -1,6 +1,10 @@
 name: Continuous Deployment
 on:
-    release:
+  push:
+    branches:
+      - main
+  release:
+    types: [published]
 
 jobs:
     build:
@@ -23,14 +27,17 @@ jobs:
     deploy:
         needs: build
         runs-on: ubuntu-latest
+        environment:
+          name: ${{ github.event_name == 'release' && 'production' || 'development' }}
         steps:
-
-            - name: Setup SSH Agent
-              uses: webfactory/ssh-agent@v0.9.0
-              with:
-                ssh-private-key: ${{secrets.DEPLOY_PRIVATE_KEY}}
-            - uses: actions/download-artifact@v4
-              with:
-                name: build
-            - name: Transfer artifact to target
-              run: scp -o "StrictHostKeyChecking no" -r ./* ${{secrets.DEPLOY_SSH_URL}}
+          - name: Setup SSH Agent
+            uses: webfactory/ssh-agent@v0.9.0
+            with:
+              ssh-private-key: ${{secrets.DEPLOY_PRIVATE_KEY}}
+          - uses: actions/download-artifact@v4
+            with:
+              name: build
+          - name: Deploy to environment
+            run: 
+          - name: Transfer artifact to target
+            run: scp -o "StrictHostKeyChecking no" -r ./* ${{secrets.DEPLOY_SSH_URL}}
