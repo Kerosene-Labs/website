@@ -24,7 +24,6 @@ jobs:
         needs: build
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v4
             - name: Setup SSH Agent
               uses: webfactory/ssh-agent@v0.9.0
               with:
@@ -33,4 +32,4 @@ jobs:
               with:
                 name: build
             - name: Transfer artifact to target
-              run: scp -o "StrictHostKeyChecking no" -r build/* ${{secrets.DEPLOY_SSH_URL}}
+              run: scp -o "StrictHostKeyChecking no" -r $PWD/build/* ${{secrets.DEPLOY_SSH_URL}}
