@@ -7,8 +7,7 @@ export default {
       xl: '1280px',
       lg: '1024px',
       md: '768px',
-      sm: '640px',
-
+      sm: '300px',
     },
   },
   plugins: [],

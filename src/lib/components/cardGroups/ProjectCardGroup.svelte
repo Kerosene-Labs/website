@@ -19,36 +19,21 @@
 		<Title text="Our Projects" size={TitleSize.SMALL} />
 		<p class="subtitle">We like building things that help.</p>
 	</div>
-	<div class="carousel">
-		<div class="carouselItems">
-			<div class="carouselItem">
-				<ProjectCard
-					name="Kindling"
-					description="The fuel that'll ignite your application. A programmable TLS HTTP/1.1 server with no dependencies."
-					repoUrl="https://github.com/Kerosene-Labs/kindling"
-				/>
-			</div>
-			<ProjectCard
-				name="ATC"
-				description="An API gateway with scoped access management for organizations that don't enjoy vendor lock-in."
-				repoUrl="https://github.com/Kerosene-Labs/atc"
-			/>
-			<ProjectCard
-				name="Espresso"
-				description="Build Java applications without fighting your build tool. Drink some espresso. "
-				repoUrl="https://github.com/Kerosene-Labs/espresso"
-			/>
-		</div>
-	</div>
-	<div class="w-1/4 self-center">
-		<Button
-			text="Our Team"
-			role="secondary"
-			on:click={() => {
-				scrollTo(PageSectionType.MEMBERS);
-			}}
-		/>
-	</div>
+	<ProjectCard
+		name="Kindling"
+		description="The fuel that'll ignite your application. A programmable TLS HTTP/1.1 server with no dependencies."
+		repoUrl="https://github.com/Kerosene-Labs/kindling"
+	/>
+	<ProjectCard
+		name="ATC"
+		description="An API gateway with scoped access management for organizations that don't enjoy vendor lock-in."
+		repoUrl="https://github.com/Kerosene-Labs/atc"
+	/>
+	<ProjectCard
+		name="Espresso"
+		description="Build Java applications without fighting your build tool. Drink some espresso. "
+		repoUrl="https://github.com/Kerosene-Labs/espresso"
+	/>
 </div>
 
 <style lang="postcss">

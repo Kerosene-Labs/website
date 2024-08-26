@@ -15,12 +15,6 @@
 		size={SubtitleSize.SMALL}
 	/>
 	<ButtonRow>
-		<Button
-			text="Our Projects"
-			on:click={() => {
-				scrollTo(PageSectionType.PROJECTS);
-			}}
-		/>
 		<Button text="GitHub" role="secondary" />
 	</ButtonRow>
 </div>
