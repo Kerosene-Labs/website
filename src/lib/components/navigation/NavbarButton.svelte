@@ -11,7 +11,7 @@
 
 <style lang="postcss">
 	.btn {
-		@apply select-none;
+		@apply select-none p-4;
 	}
 	.logo {
 		@apply w-11 h-11 stroke-neutral-300 hover:stroke-neutral-400 active:stroke-neutral-400 focus:stroke-neutral-400;

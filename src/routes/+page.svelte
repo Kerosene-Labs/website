@@ -1,9 +1,7 @@
 <script lang="ts">
 	import LandingCardGroup from '$lib/components/cardGroups/LandingCardGroup.svelte';
 	import CenterContainer from '$lib/components/layout/CenterContainer.svelte';
-	import PageSection from '$lib/components/layout/PageSection.svelte';
 	import Navbar from '$lib/components/navigation/Navbar.svelte';
-	import { PageSectionType } from '$lib/util/pageSection';
 
 	if (typeof window !== 'undefined') {
 		document.title = 'Kerosene Labs';
@@ -11,11 +9,8 @@
 </script>
 
 <Navbar></Navbar>
-<PageSection>
+<div class="w-screen h-screen">
 	<CenterContainer>
 		<LandingCardGroup />
 	</CenterContainer>
-</PageSection>
-
-<style lang="postcss">
-</style>
+</div>

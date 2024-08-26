@@ -15,7 +15,11 @@
 		size={SubtitleSize.SMALL}
 	/>
 	<ButtonRow>
-		<Button text="GitHub" role="secondary" />
+		<Button on:click={() => {
+			window.open("https://github.com/Kerosene-Labs"
+				
+			);
+		}} text="GitHub" role="secondary" />
 	</ButtonRow>
 </div>
 
