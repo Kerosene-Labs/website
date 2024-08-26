@@ -9,7 +9,7 @@
 <div class="navbar-container">
 	<div class="navbar">
 		<!-- only show navbar on small screens -->
-		<div class="w-min flex md:hidden">
+		<div class="flex w-min md:hidden">
 			<NavbarButton
 				on:click={() => {
 					isDrawerOpen = !isDrawerOpen;
@@ -27,12 +27,11 @@
 
 <style lang="postcss">
 	.navbar {
-		@apply bg-neutral-100 rounded-[-10px];
+		@apply rounded-[-10px] bg-neutral-100;
 		@apply transition-all;
 	}
 	.navbar-container {
-		@apply w-screen z-50;
-		@apply fixed;
+		@apply h-min w-full;
 		@apply transition-all;
 	}
 </style>

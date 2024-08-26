@@ -5,7 +5,7 @@
 </script>
 
 <Navbar></Navbar>
-<div class="w-screen pt-[6rem]">
+<div class="md:pt-20">
 	<CenterContainer>
 		<MembersCardGroup></MembersCardGroup>
 	</CenterContainer>
