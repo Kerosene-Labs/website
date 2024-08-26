@@ -8,8 +8,8 @@
 	}
 </script>
 
-<Navbar></Navbar>
-<div class="w-screen h-screen">
+<Navbar />
+<div class="h-full md:pt-20">
 	<CenterContainer>
 		<LandingCardGroup />
 	</CenterContainer>

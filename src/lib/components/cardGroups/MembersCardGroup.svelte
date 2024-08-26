@@ -1,11 +1,13 @@
 <script lang="ts">
 	import MemberCard from '../cards/MemberCard.svelte';
+	import Subtitle from '../labels/Subtitle.svelte';
+	import Title from '../labels/Title.svelte';
 </script>
 
-<div class="flex flex-col gap-12 pt-12">
+<div class="flex flex-col gap-12">
 	<div class="flex flex-col gap-2">
-		<h1 class="title">Our Team</h1>
-		<p class="subtitle">They're what makes us special.</p>
+		<Title text="Our Team" />
+		<Subtitle text="They're what makes us special." />
 	</div>
 	<MemberCard
 		name="Hunter LaFaille"

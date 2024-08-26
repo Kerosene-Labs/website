@@ -4,7 +4,9 @@
 	import Navbar from '$lib/components/navigation/Navbar.svelte';
 </script>
 
-<Navbar></Navbar>
-<div class="w-screen h-full pt-[6rem]">
-		<ProjectCardGroup></ProjectCardGroup>
+<Navbar />
+<div class="md:pt-20">
+	<CenterContainer>
+		<ProjectCardGroup />
+	</CenterContainer>
 </div>
