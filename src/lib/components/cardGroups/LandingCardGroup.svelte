@@ -15,13 +15,11 @@
 		size={SubtitleSize.SMALL}
 	/>
 	<ButtonRow>
-		<Button
-			text="Our Projects"
-			on:click={() => {
-				scrollTo(PageSectionType.PROJECTS);
-			}}
-		/>
-		<Button text="GitHub" role="secondary" />
+		<Button on:click={() => {
+			window.open("https://github.com/Kerosene-Labs"
+				
+			);
+		}} text="GitHub" role="secondary" />
 	</ButtonRow>
 </div>
 
@@ -31,8 +29,5 @@
 	}
 	div.container {
 		@apply flex w-full flex-col items-center gap-4;
-	}
-	div.buttonRow {
-		@apply flex w-full flex-row gap-4;
 	}
 </style>

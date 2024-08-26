@@ -25,10 +25,12 @@
 		@apply rounded-3xl bg-orange-500 p-4;
 		@apply text-xl font-medium text-gray-100;
 		@apply hover:bg-amber-500;
+		@apply active:bg-amber-400;
 	}
 	.btn-secondary {
 		@apply rounded-3xl bg-neutral-800 p-4;
 		@apply text-xl font-medium text-gray-100;
 		@apply hover:bg-gray-600;
+		@apply active:bg-gray-700;
 	}
 </style>
