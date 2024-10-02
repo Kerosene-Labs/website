@@ -1,6 +1,9 @@
 <script lang="ts">
+	import Button from "$lib/components/buttons/Button.svelte";
+	import HeroCard from "$lib/components/cards/HeroCard.svelte";
+
 </script>
 
-<div class="">
-	
+<div class="flex h-full items-center justify-center">
+	<HeroCard/>
 </div>
