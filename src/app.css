@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply selection:bg-orange-400 selection:text-white;
+}

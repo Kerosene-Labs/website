@@ -41,7 +41,7 @@
 
 <button
 	id="mobileNavDrawerBg"
-	class="block lg:hidden absolute h-screen w-screen bg-neutral-800 opacity-0 pointer-events-none transition-opacity backdrop-blur-md"
+	class="block lg:hidden absolute h-screen w-screen bg-neutral-800 opacity-0 pointer-events-none transition-opacity"
 	class:drawer-open={drawerOpen}
 	on:click={() => {drawerOpen = !drawerOpen}}
 ></button>

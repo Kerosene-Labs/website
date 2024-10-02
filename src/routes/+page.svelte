@@ -4,6 +4,7 @@
 
 </script>
 
-<div class="flex h-full items-center justify-center">
+<title>Kerosene Labs</title>
+<div id="thisOne" class="flex h-full items-center justify-center">
 	<HeroCard/>
 </div>

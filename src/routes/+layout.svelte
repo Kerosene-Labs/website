@@ -4,9 +4,9 @@
 	import '../app.css';
 </script>
 
-<div class="flex h-screen flex-col">
+<div class="flex flex-col page min-h-screen">
 	<Navigation />
-	<div class="h-full px-2 nlg:px-0">
+	<div class="h-full px-2 lg:px-0">
 		<slot />
 	</div>
 	<Footer />

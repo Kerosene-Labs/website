@@ -22,10 +22,10 @@
 		@apply select-none;
 	}
 	.btn-primary {
-		@apply rounded-3xl bg-orange-500 p-4;
+		@apply rounded-2xl bg-orange-500 p-4;
 		@apply text-xl font-medium text-gray-100;
 		@apply hover:bg-amber-500;
-		@apply active:bg-amber-400;
+		@apply active:bg-amber-600;
 	}
 	.btn-secondary {
 		@apply rounded-3xl bg-neutral-800 p-4;
