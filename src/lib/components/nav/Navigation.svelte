@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
 	import { draw } from 'svelte/transition';
 
 	const navItems = [
@@ -10,13 +11,33 @@
 
 	let drawerOpen: boolean = false;
 
+	onMount(() => {
+		function typeText(elementId: string, text: string, delay = 50) {
+			const terminalElement = document.getElementById(elementId);
+			let index = 0;
+
+			function type() {
+				if (index < text.length) {
+					terminalElement!.innerHTML += text.charAt(index);
+					index++;
+					setTimeout(type, delay); // Delay between each character
+				}
+			}
+
+			type();
+		}
+
+		const textToType = `Kerosene Labs`;
+		typeText('terminal', textToType, 100); // Adjust delay for typing speed
+	});
 </script>
 
 <!-- Mobile Nav -->
-<div id="mobileNavBar" class="block lg:hidden z-50">
+<div id="mobileNavBar" class="z-50 block lg:hidden">
 	<div class="w-full bg-neutral-100 p-2">
 		<!-- <p class="mr-auto text-3xl font-light text-neutral-300">☰</p> -->
-		<button class="items-center justify-center flex"
+		<button
+			class="flex items-center justify-center"
 			on:click={() => {
 				drawerOpen = !drawerOpen;
 			}}
@@ -34,25 +55,29 @@
 	</div>
 </div>
 
-<div id="mobileNavDrawer" class="block lg:hidden bg-gray-200 transition-all translate-x-[-100%] w-[80%] sm:w-[40%] md:w-[30%] h-full absolute z-40 backdrop-blur-lg" class:drawer-open={drawerOpen}>
+<div
+	id="mobileNavDrawer"
+	class="absolute z-40 block h-full w-[80%] translate-x-[-100%] bg-gray-200 backdrop-blur-lg transition-all sm:w-[40%] md:w-[30%] lg:hidden"
+	class:drawer-open={drawerOpen}
+>
 	<p>Test</p>
 </div>
 
-
 <button
 	id="mobileNavDrawerBg"
-	class="block lg:hidden absolute h-screen w-screen bg-neutral-800 opacity-0 pointer-events-none transition-opacity"
+	class="pointer-events-none absolute block h-screen w-screen bg-neutral-800 opacity-0 transition-opacity lg:hidden"
 	class:drawer-open={drawerOpen}
-	on:click={() => {drawerOpen = !drawerOpen}}
+	on:click={() => {
+		drawerOpen = !drawerOpen;
+	}}
 ></button>
 
 <!-- Desktop Nav -->
 <div id="desktopNavBar" class="hidden lg:block">
 	<div class="flex flex-row">
-		<a href="/" class="flex flex-row items-center justify-center gap-2 p-4 text-xl font-semibold">
-			<img src="kerosene_logo_transparent.png" alt="Kerosene Logo" class="size-8" />
-			Kerosene Labs</a
-		>
+		<a id="terminal" href="/" class="flex flex-row items-center justify-center gap-2 p-4 text-xl font-semibold">
+			<img src="/kerosene_logo_transparent.png" alt="Kerosene Logo" class="size-8" />
+		</a>
 		<div class="ml-auto flex flex-row gap-6 p-4">
 			{#each navItems as item}
 				<a
@@ -67,7 +92,7 @@
 
 <style lang="postcss">
 	#mobileNavDrawerBg.drawer-open {
-		@apply opacity-50 pointer-events-auto;
+		@apply pointer-events-auto opacity-50;
 	}
 
 	#mobileNavDrawer.drawer-open {
