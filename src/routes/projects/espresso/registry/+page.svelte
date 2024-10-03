@@ -20,7 +20,8 @@
 			const response = await fetch(`${apiUrl}?q=` + encodeURI(term), {
 				method: 'GET',
 				headers: {
-					'Content-Type': 'application/json'
+					'Content-Type': 'application/json',
+					'Accepts': 'application/json'
 				}
 			});
 
