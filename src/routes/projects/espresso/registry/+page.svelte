@@ -16,7 +16,8 @@
 	async function queryRegistryApi(term: string): Promise<Array<any> | undefined> {
 		apiQueryError = '';
 		try {
-			const response = await fetch('http://localhost:8080/registry?q=' + encodeURI(term), {
+			const apiUrl = import.meta.env.VITE_API_URL;
+			const response = await fetch(`${apiUrl}?q=` + encodeURI(term), {
 				method: 'GET',
 				headers: {
 					'Content-Type': 'application/json'
