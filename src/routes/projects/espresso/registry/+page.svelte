@@ -14,6 +14,7 @@
 	// API Querying
 	let apiQueryError: string = '';
 	async function queryRegistryApi(term: string): Promise<Array<any> | undefined> {
+		apiQueryError = '';
 		try {
 			const response = await fetch('http://localhost:8080/registry?q=' + encodeURI(term), {
 				method: 'GET',
@@ -23,13 +24,13 @@
 			});
 
 			if (!response.ok) {
-				apiQueryError = 'An error occurred: HTTP ' + response.status;
+				apiQueryError = 'An error occured while querying the API: HTTP ' + response.status;
 			}
 
 			const data = await response.json(); // Parse the response as JSON
 			return data; // Return the data
 		} catch (error) {
-			console.error('There was a problem with the fetch operation:', error);
+			apiQueryError = 'An error occured while querying the API: ' + error;
 		}
 	}
 	let apiResponse: Array<any> = [];
@@ -51,23 +52,32 @@
 	</div>
 
 	{#if lineEditValue}
-		<p class="text-sm text-neutral-400">
-			Searching registry at commit: 882be6a7e61d11d33dec508a789f009352a3e328
-		</p>
-		<div class="flex items-center">
-			<div class="grid w-full grid-cols-1 gap-8 p-4 lg:grid-cols-2">
-				{#each apiResponse as group}
-					{#each group.espressoPackages as pkg}
-						<div class:single-registry-card={apiResponse.length === 1}>
-							<RegistryCard
-								title={pkg.name}
-								group={group.name}
-								body={pkg.packageDeclaration.description}
-							/>
-						</div>
-					{/each}
-				{/each}
+		{#if apiQueryError}
+			<div class="w-full rounded-lg border border-red-400 p-4">
+				<p>{apiQueryError}</p>
 			</div>
+		{/if}
+		{#if apiResponse}
+			<p class="text-sm text-neutral-400">
+				Searching registry at commit: 882be6a7e61d11d33dec508a789f009352a3e328
+			</p>
+		{/if}
+		<div class="flex items-center">
+			{#if apiResponse}
+				<div class="grid w-full grid-cols-1 gap-8 p-4 lg:grid-cols-2">
+					{#each apiResponse as group}
+						{#each group.espressoPackages as pkg}
+							<div class:single-registry-card={apiResponse.length === 1}>
+								<RegistryCard
+									title={pkg.name}
+									group={group.name}
+									body={pkg.packageDeclaration.description}
+								/>
+							</div>
+						{/each}
+					{/each}
+				</div>
+			{/if}
 		</div>
 	{/if}
 </div>
