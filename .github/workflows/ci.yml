@@ -6,6 +6,8 @@ on:
 jobs:
     build:
         runs-on: ubuntu-latest
+        env:
+          VITE_API_URL: ${{secrets.VITE_API_URL}}
         steps:
             - name: Setup pnpm
               uses: pnpm/action-setup@v4
